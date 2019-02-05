@@ -48,10 +48,15 @@ func init() {
 
 // CreateUserTokenString converts user to signed jwt
 func CreateUserTokenString(u structs.User) string {
+	var username = u.Username
+	if u.Username == "" {
+		username = u.Sub
+	}
+
 	// User`token`
 	// u.PrepareUserData()
 	claims := VouchClaims{
-		u.Username,
+		username,
 		Sites,
 		StandardClaims,
 	}

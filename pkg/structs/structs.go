@@ -13,6 +13,7 @@ type User struct {
 	Username   string `json:"username",mapstructure:"username"`
 	Name       string `json:"name",mapstructure:"name"`
 	Email      string `json:"email",mapstructure:"email"`
+	Sub        string `json:"sub"`
 	CreatedOn  int64  `json:"createdon"`
 	LastUpdate int64  `json:"lastupdate"`
 	ID         int    `json:"id",mapstructure:"id"`

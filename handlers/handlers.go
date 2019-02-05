@@ -245,6 +245,7 @@ func LogoutHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// HealthcheckHandler ...
 func HealthcheckHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	fmt.Fprintf(w, "{ \"ok\": true }")
@@ -450,12 +451,15 @@ func getUserInfoFromOpenID(client *http.Client, user *structs.User, ptoken *oaut
 		return err
 	}
 	defer userinfo.Body.Close()
-	data, _ := ioutil.ReadAll(userinfo.Body)
-	log.Println("OpenID userinfo body: ", string(data))
-	if err = json.Unmarshal(data, user); err != nil {
+	//data, _ := ioutil.ReadAll(userinfo.Body)
+	err = json.NewDecoder(userinfo.Body).Decode(user)
+	log.Println("OpenID userinfo body: ", user)
+	if err != nil {
 		log.Errorln(err)
 		return err
 	}
+	log.Println("Temp Debug - User: ", string(user.Username))
+	log.Println("Temp Debug - Sub: ", string(user.Sub))
 	user.PrepareUserData()
 	return nil
 }
