@@ -17,7 +17,7 @@ RUN ./do.sh goget
 RUN ./do.sh gobuildstatic # see `do.sh` for vouch-proxy build details
 RUN ./do.sh install
 
-FROM scratch
+FROM alpine
 LABEL maintainer="vouch@bnf.net"
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY templates/ templates/
@@ -25,4 +25,4 @@ COPY templates/ templates/
 COPY static /static
 COPY --from=builder /go/bin/vouch-proxy /vouch-proxy
 EXPOSE 9090
-ENTRYPOINT ["/vouch-proxy"]
+CMD ["/vouch-proxy"]
