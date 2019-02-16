@@ -357,7 +357,7 @@ func setDefaults() {
 		Cfg.Headers.JWT = "X-" + Branding.CcName + "-Token"
 	}
 	if !viper.IsSet(Branding.LCName + ".headers.idpIDToken") {
-		Cfg.Headers.IdpAccessToken = ""
+		Cfg.Headers.IdpIDToken = ""
 	}
 	if !viper.IsSet(Branding.LCName + ".headers.idpAccessToken") {
 		Cfg.Headers.IdpAccessToken = ""
