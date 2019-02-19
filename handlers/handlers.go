@@ -192,8 +192,12 @@ func ValidateRequestHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Add(cfg.Cfg.Headers.User, claims.Username)
+	log.Printf("TEMP DEBUG 1 - cfg.Cfg.Headers.IdpIDToken: %s", cfg.Cfg.Headers.IdpIDToken)
+	log.Printf("TEMP DEBUG 2 - claims.IDToken: %s", claims.IDToken)
 	if cfg.Cfg.Headers.IdpIDToken != "" {
 		w.Header().Add(cfg.Cfg.Headers.IdpIDToken, claims.IDToken)
+		log.Printf("TEMP DEBUG 3 - cfg.Cfg.Headers.IdpIDToken: %s", cfg.Cfg.Headers.IdpIDToken)
+		log.Printf("TEMP DEBUG 4 - claims.IDToken: %s", claims.IDToken)
 	}
 	if cfg.Cfg.Headers.IdpAccessToken != "" {
 		w.Header().Add(cfg.Cfg.Headers.IdpAccessToken, claims.AccessToken)
