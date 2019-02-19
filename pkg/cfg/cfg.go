@@ -41,11 +41,13 @@ type config struct {
 		HTTPOnly bool   `mapstructure:"httpOnly"`
 	}
 	Headers struct {
-		JWT         string `mapstructure:"jwt"`
-		User        string `mapstructure:"user"`
-		QueryString string `mapstructure:"querystring"`
-		Redirect    string `mapstructure:"redirect"`
-		Success     string `mapstructure:"success"`
+		JWT            string `mapstructure:"jwt"`
+		User           string `mapstructure:"user"`
+		QueryString    string `mapstructure:"querystring"`
+		Redirect       string `mapstructure:"redirect"`
+		Success        string `mapstructure:"success"`
+		IdpIDToken     string `mapstructure:"idpIDToken"`
+		IdpAccessToken string `mapstructure:"idpAccessToken"`
 	}
 	DB struct {
 		File string `mapstructure:"file"`
