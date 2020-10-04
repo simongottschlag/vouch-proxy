@@ -1,0 +1,31 @@
+version: "3.8"
+services:
+  vouch-proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile-local
+    volumes:
+      - ./local/go/:/go/
+      - .:/go/src/github.com/vouch/vouch-proxy/
+    environment:
+      - VOUCH_DOMAINS=vouchproxy.localhost
+      - OAUTH_PROVIDER=azure
+      - OAUTH_CLIENT_ID=abc
+      - OAUTH_CLIENT_SECRET=secret
+      - OAUTH_CALLBACK_URL=https://podinfo.vouchproxy.localhost:8443/auth
+    # ports:
+    #   - "9090:9090"
+  podinfo:
+    image: "stefanprodan/podinfo:latest"
+    # ports:
+    #   - "9898:9898"
+  nginx:
+    image: "nginx:stable"
+    volumes:
+      - ./local/nginx/:/etc/nginx/
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+    links:
+      - "vouch-proxy"
+      - "podinfo"

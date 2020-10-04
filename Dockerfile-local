@@ -1,0 +1,6 @@
+FROM golang:1.14
+
+RUN mkdir -p /go/src/github.com/vouch/vouch-proxy
+WORKDIR /go/src/github.com/vouch/vouch-proxy
+
+ENTRYPOINT ["/bin/bash", "do-local.sh"]

@@ -12,3 +12,5 @@ pkg/model/storage-test.db
 coverage.out
 coverage.html.env_google
 .env*
+local/nginx/ssl
+local/go
