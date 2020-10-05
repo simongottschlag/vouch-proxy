@@ -13,4 +13,3 @@ coverage.out
 coverage.html.env_google
 .env*
 local/nginx/ssl
-local/go

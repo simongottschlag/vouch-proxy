@@ -11,3 +11,8 @@ config/config.yml_orig
 .dockerignore
 Dockerfile
 handlers/rice-box.go
+local
+tmp
+docker-compose.yaml
+Dockerfile-local
+air.conf

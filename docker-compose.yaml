@@ -5,7 +5,6 @@ services:
       context: .
       dockerfile: Dockerfile-local
     volumes:
-      - ./local/go/:/go/
       - .:/go/src/github.com/vouch/vouch-proxy/
     environment:
       - VOUCH_DOMAINS=vouchproxy.localhost
