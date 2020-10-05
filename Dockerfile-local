@@ -11,4 +11,4 @@ RUN ./do.sh install
 
 RUN go get -u github.com/cosmtrek/air
 
-ENTRYPOINT ["air"]
+ENTRYPOINT ["air", "-c", ".air.toml"]

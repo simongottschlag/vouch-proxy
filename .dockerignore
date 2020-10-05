@@ -15,4 +15,4 @@ local
 tmp
 docker-compose.yaml
 Dockerfile-local
-air.conf
+.air.toml

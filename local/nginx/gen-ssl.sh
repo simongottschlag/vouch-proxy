@@ -44,6 +44,7 @@ echo ""
 echo ""
 echo "Add podinfo to your hosts-file:"
 echo "echo 127.0.0.1 podinfo.vouchproxy.localhost >> /etc/hosts"
+echo "echo 127.0.0.1 auth.vouchproxy.localhost >> /etc/hosts"
 echo ""
 
 echo ""
